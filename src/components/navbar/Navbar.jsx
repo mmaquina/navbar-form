@@ -1,12 +1,11 @@
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-//import { Routes, Route} from 'react-router-dom';
+import { useState } from 'react';
+import { Dialog } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
-  { name: 'Inicio', href: '#' },
-  { name: 'Quienes somos', href: '#' },
-  { name: 'Contactenos', href: '#' },
+  { name: 'Inicio', href: '/Home' },
+  { name: 'Quienes somos', href: '/About' },
+  { name: 'Contactenos', href: '/Form' },
 ]
 
 export default function Navbar() {
