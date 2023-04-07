@@ -23,13 +23,15 @@ export default function About() {
         
             <div className="text-center">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                Somos la academia del análisis de datos
+                Somos la academia de la cobranza
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Central se planta y te pega. 
-                Te roba los trapos y te hace correr por Avellaneda. Y va a donde sea. 
-                Qui irure qui lorem cupidatat commodo. Elit sunt amet
-                fugiat veniam occaecat fugiat aliqua.
+                Disponemos de un call-center con una planta de 200 personas especialmente entrenadas y con años de experiencia en el apriete. 
+                No obstante lo cual, en ocasiones una llamada no resulta suficientemente persuasiva,
+                es por eso que también mantenemos vínculos con los bajofondos mas recónditos del hampa.
+                Hablamos de gente dispuesta a (casi) todo. Barrabravas, narcotraficantes y malechores de toda calaña
+                garantizan que usted recuperará lo adeudado, ya sea a través de sus deudores o en prejuicio de
+                terceros.
               </p>
               
             </div>

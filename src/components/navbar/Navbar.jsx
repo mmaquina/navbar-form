@@ -20,7 +20,7 @@ export default function Navbar() {
               <span className="sr-only">Your Company</span>
               <img
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Rosario_Central_logo.png/150px-Rosario_Central_logo.png"
                 alt=""
               />
             </a>
