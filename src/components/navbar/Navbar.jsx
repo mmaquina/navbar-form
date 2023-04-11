@@ -12,11 +12,11 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="bg-white">
-      <header className="absolute inset-x-0 top-0 z-50">
+    <div className="bg-opacity-0 w-screen">
+      <header className="relative inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
-            <a href="#" className="-m-1.5 p-1.5">
+            <a href="/Home" className="-m-1.5 p-1.5">
               <span className="sr-only">CARC</span>
               <img
                 className="h-8 w-auto"
@@ -37,13 +37,13 @@ export default function Navbar() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-slate-200">
                 {item.name}
               </a>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            <a href="#" className="text-sm font-semibold leading-6 text-slate-200">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
@@ -76,7 +76,7 @@ export default function Navbar() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-slate-200 hover:bg-gray-50"
                     >
                       {item.name}
                     </a>
@@ -85,7 +85,7 @@ export default function Navbar() {
                 <div className="py-6">
                   <a
                     href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-slate-200 hover:bg-gray-50"
                   >
                     Log in
                   </a>

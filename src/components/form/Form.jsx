@@ -1,8 +1,10 @@
 export default function Form() {
+  
   return (
     <form>
-      <div className="space-y-12 bg-gradient-to-bl from-violet-200 to-slate-300">
-        <div className="border-b border-gray-900/10 pb-12 pt-20">
+      <div className="bg-gradient-to-bl from-violet-200 to-slate-300">
+        <div className="relative isolate border-b border-gray-900/10 pb-12 pt-1 px-6 lg:px-8">
+        
           <h2 className="text-base font-semibold leading-7 text-gray-900">Contáctenos</h2>
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
   
@@ -183,7 +185,7 @@ export default function Form() {
       </div>
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
-        <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+        <button type="button" className="text-sm font-semibold leading-6 text-slate-200">
           Cancelar
         </button>
         <button
