@@ -1,7 +1,13 @@
 import { useForm } from "react-hook-form";
 
 const Form2 = () => {
-    const { register, formState: { errors }, watch, handleSubmit } = useForm();
+    const { register, formState: { errors }, watch, handleSubmit } = useForm({
+        defaultValues: {
+            nombre: "su nombre",
+            apellido: "su apellido",
+            email: "ejemplo@servidor.com"
+        }
+    });
     
     const onSubmit = (data) => {
         console.log(data);
