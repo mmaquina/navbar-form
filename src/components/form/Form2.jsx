@@ -1,13 +1,7 @@
 import { useForm } from "react-hook-form";
 
 const Form2 = () => {
-    const { register, formState: { errors }, watch, handleSubmit } = useForm({
-        defaultValues: {
-            nombre: "su nombre",
-            apellido: "su apellido",
-            email: "ejemplo@servidor.com"
-        }
-    });
+    const { register, formState: { errors }, watch, handleSubmit } = useForm();
     
     const onSubmit = (data) => {
         console.log(data);
@@ -19,7 +13,7 @@ const Form2 = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div>   
                 <label>Nombre</label>
-                <input type="text" {...register('nombre', {
+                <input type="text" placeholder="Su nombre" {...register('nombre', {
                     required: true,
                     maxLength: 10
                 })}/>
@@ -28,7 +22,7 @@ const Form2 = () => {
             </div>
             <div>
                 <label>Apellido</label>
-                <input type="text" name="" {...register('apellido', {
+                <input type="text" placeholder="Su apellido" name="" {...register('apellido', {
                     required: true
                 })}/>
                 {errors.apellido?.type === 'required' && <p>El campo apellido es requerido</p>}
@@ -43,7 +37,7 @@ const Form2 = () => {
             </div>
             <div>
                 <label>Email</label>
-                <input type="text" name="" {...register('email', {
+                <input type="text" name="" placeholder="ejemplo@mail.com" {...register('email', {
                     pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
                 })} />
                 {errors.email?.type === 'pattern' && <p>El email no es válido</p>}
