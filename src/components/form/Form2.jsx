@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 
 const Form2 = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm();
     
     const onSubmit = (data) => {
         console.log(data);
@@ -16,20 +16,30 @@ const Form2 = () => {
                     required: true,
                     maxLength: 10
                 })}/>
+                {errors.nombre?.type === 'required' && <p>El campo nombre es requerido</p>}
+                {errors.nombre?.type === 'maxLength' && <p>El campo nombre no puede exceder los 10 caracteres.</p>}
             </div>
             <div>
                 <label>Apellido</label>
-                <input type="text" name="" {...register('Apellido', {
+                <input type="text" name="" {...register('apellido', {
                     required: true
                 })}/>
+                {errors.apellido?.type === 'required' && <p>El campo apellido es requerido</p>}
             </div>
             <div>
                 <label>País</label>
-                <select name="" id="" {...register('Pais')}>
+                <select name="" id="" {...register('pais')}>
                     <option value="es">España</option>
                     <option value="fr">Francia</option>
                     <option value="it">Italia</option>
                 </select>
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="text" name="" {...register('email', {
+                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
+                })} />
+                {errors.email?.type === 'pattern' && <p>El email no es válido</p>}
             </div>
             <input type="submit" value="Enviar"/>
         </form>
