@@ -1,5 +1,6 @@
+
 export default function Form() {
-  
+
   return (
     <form>
       <div className="bg-gradient-to-bl from-violet-200 to-slate-300">
@@ -165,4 +166,5 @@ export default function Form() {
       </div>
     </form>
   )
+
 }
