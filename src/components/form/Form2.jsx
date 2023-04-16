@@ -1,12 +1,13 @@
 import { useForm } from "react-hook-form";
 
 const Form2 = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, watch, handleSubmit } = useForm();
     
     const onSubmit = (data) => {
         console.log(data);
     }
-
+    
+    const registrarTelefono = watch('registrarTelefono');
     return <div>
         <h2>Contáctenos2</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -41,6 +42,16 @@ const Form2 = () => {
                 })} />
                 {errors.email?.type === 'pattern' && <p>El email no es válido</p>}
             </div>
+            <div>
+                <label>¿Desea ser contactado por teléfono?</label>
+                <input type="checkbox" {...register('registrarTelefono')} />
+            </div>
+            {registrarTelefono && (
+                <div>
+                    <label>Teléfono</label>
+                    <input type="text" {...register('telefono')} />
+                </div>
+            )}
             <input type="submit" value="Enviar"/>
         </form>
     </div>
