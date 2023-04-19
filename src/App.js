@@ -5,6 +5,7 @@ import About from './components/about/About.jsx';
 import Form from './components/form/Form.jsx';
 import Footer from './components/footer/Footer.jsx';
 import Form2 from './components/form/Form2.jsx';
+import Customers from './components/customers/Customers.jsx';
 import { Route, Routes } from 'react-router-dom';
 
 
@@ -19,6 +20,7 @@ function App() {
         <Route path='/About' element={<About/>}/>
         <Route path='/Form' element={<Form/>}/>
         <Route path='/Form2' element={<Form2/>}/>
+        <Route path='/Clientes' element={<Customers/>}/>
       </Routes>
       <Footer/>
       </header>

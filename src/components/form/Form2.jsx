@@ -1,6 +1,11 @@
 import { useForm } from "react-hook-form";
+import React, { useState, useEffect } from 'react';
+
 
 const Form2 = () => {
+
+    const [nombre, setNombre] = useState('s');
+    
     const { register, formState: { errors }, watch, handleSubmit } = useForm();
     
     const onSubmit = (data) => {
@@ -8,12 +13,19 @@ const Form2 = () => {
     }
     
     const registrarTelefono = watch('registrarTelefono');
+
+    useEffect(() => {
+        // Actualiza el título del documento usando la API del navegador
+        console.log(`Nombre ${nombre}`);
+    }, [nombre] );
+
     return <div>
         <h2>Contáctenos2</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
             <div>   
                 <label>Nombre</label>
-                <input type="text" placeholder="Su nombre" {...register('nombre', {
+                <input type="text" placeholder="Su nombre" 
+                onChange={(e)=>setNombre(e.target.value)} {...register('nombre', {
                     required: true,
                     maxLength: 10
                 })}/>
@@ -22,7 +34,7 @@ const Form2 = () => {
             </div>
             <div>
                 <label>Apellido</label>
-                <input type="text" placeholder="Su apellido" name="" {...register('apellido', {
+                <input type="text" placeholder="Su apellido" {...register('apellido', {
                     required: true
                 })}/>
                 {errors.apellido?.type === 'required' && <p>El campo apellido es requerido</p>}
