@@ -9,7 +9,7 @@ import {
   export default function Tarjeta(props) {
     console.log(props.name)
     return (
-      <Card className="bg-gradient-to-bl from-violet-200 to-slate-300">
+      <Card className="bg-gradient-to-bl from-violet-200 to-slate-300 p-5 m-5 rounded-lg w-96 text-center">
         <CardHeader color="blue" className="relative ">
           <img
             src={props.person.image}
