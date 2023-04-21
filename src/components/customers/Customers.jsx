@@ -47,7 +47,7 @@ export default function Customers() {
         </div>
 
       <h2>Nuestros Clientes</h2>
-      <div className="container  flex  flex-wrap  ">
+      <div className="container  flex  flex-wrap">
 
         {customers.map((customer, index) => {
           console.log(customer)
