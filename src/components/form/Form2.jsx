@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 const Form2 = () => {
 
-    const [nombre, setNombre] = useState('s');
+    const [nombre, setNombre] = useState('');
     
     const { register, formState: { errors }, watch, handleSubmit } = useForm();
     
