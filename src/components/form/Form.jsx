@@ -13,14 +13,15 @@ export default function Form() {
   }
   
   const registrarTelefono = watch('registrarTelefono');
-
+  
   useEffect(() => {
-      // Actualiza el título del documento usando la API del navegador
-      console.log(`Nombre ${nombre}`);
+    // Actualiza el título del documento usando la API del navegador
+    console.log(`Nombre ${nombre}`);
   }, [nombre] );
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="bg-gradient-to-bl from-violet-200 to-slate-300">
+      <div className="relative isolate mt-20 bg-gradient-to-bl from-violet-200 to-slate-300">
         
         <div className="relative isolate border-b border-gray-900/10 pb-12 pt-1 px-6 lg:px-8">
           <div
@@ -71,8 +72,8 @@ export default function Form() {
                     maxLength: 10
                   })}
                 />
-                {errors.nombre?.type === 'required' && <p>El campo nombre es requerido</p>}
-                {errors.nombre?.type === 'maxLength' && <p>El campo nombre no puede exceder los 10 caracteres.</p>}
+                {errors.nombre?.type === 'required' && <p className=" w-full  text-red-700  sm:py-1.5 sm:text-sm sm:leading-6">El campo nombre es requerido</p>}
+                {errors.nombre?.type === 'maxLength' && <p className=" w-full  text-red-700  sm:py-1.5 sm:text-sm sm:leading-6">El campo nombre no puede exceder los 10 caracteres.</p>}
                 
               </div>
             </div>
@@ -88,7 +89,10 @@ export default function Form() {
                   id="last-name"
                   autoComplete="apellido"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-900 sm:text-sm sm:leading-6"
-                />
+                  {...register('apellido', {
+                    required: true
+                })}/>
+                {errors.apellido?.type === 'required' && <p className=" w-full  text-red-700  sm:py-1.5 sm:text-sm sm:leading-6">El campo apellido es requerido</p>}
               </div>
             </div>
 
@@ -103,7 +107,11 @@ export default function Form() {
                   type="email"
                   autoComplete="email"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-900 sm:text-sm sm:leading-6"
+                  {...register('email', {
+                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
+                  })} 
                 />
+                {errors.email?.type === 'pattern' && <p  className=" w-full  text-red-700  sm:py-1.5 sm:text-sm sm:leading-6">El email no es válido</p>}
               </div>
             </div>
 
@@ -170,11 +178,25 @@ export default function Form() {
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-900 sm:text-sm sm:leading-6"
                 />
               </div>
+            </div>  
+            
+            <div className="sm:col-span-2 ">
+              <label className="block text-sm font-medium leading-6 text-gray-900">¿Desea ser contactado por teléfono?</label>
+              <input type="checkbox" className="form-checkbox checked:bg-sky-900 active:bg-sky-900 focus:bg-sky-900 indeterminate:bg-sky-900 " 
+              {...register('registrarTelefono')} />
+              <div className="mt-2">
+              {registrarTelefono && (
+                <div>
+                  <label className="block text-sm font-medium leading-6 text-gray-900">Teléfono</label>
+                  <input className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-900 sm:text-sm sm:leading-6" 
+                  type="text" {...register('telefono')} />
+                </div>
+              )}
+              </div>
             </div>
           </div>
         </div>
 
- 
       </div>
 
       <div className="mt-6 flex items-center justify-end gap-x-6">
@@ -183,7 +205,7 @@ export default function Form() {
         </button>
         <button
           type="submit"
-          className="rounded-md bg-sky-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
+          className="rounded-md bg-sky-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
         >
           Enviar
         </button>

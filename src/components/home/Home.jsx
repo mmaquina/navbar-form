@@ -5,7 +5,7 @@ export default function Home() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     
     return (
-      <div className="bg-gradient-to-bl from-violet-200 to-slate-300">
+      <div className="relative isolate mt-20 bg-gradient-to-bl from-violet-200 to-slate-300">
         <div className="relative isolate px-6 pt-1 lg:px-8">
           <div
             className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
