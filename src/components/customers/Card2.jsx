@@ -14,14 +14,12 @@ export default function Tarjeta(props) {
         <div className="mb-8">
           
           <div className="text-gray-900 font-bold text-xl mb-2">{props.person.name}</div>
-          <p className="text-gray-700 text-base">Member of the {props.person.species} species, 
-          this client is working with us since {props.person.created}.
-          While currently located in {props.person.place}, the client's actual place of origin is {props.person.originplace}.</p>
+          <p className="text-gray-700 text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe optio ipsum molestias non doloribus? Unde, iusto? Aspernatur voluptatem officiis quis inventore maxime possimus sunt rerum, minima repellat reprehenderit assumenda eveniet cum aliquam. Asperiores, animi libero! Exercitationem obcaecati quaerat repellendus rem.</p>
         </div>
         <div className="flex items-center">
-          <img className="w-32 h-32 rounded-full mr-4" src={props.person.image} alt="Avatar"/>
+          <img className="w-16 h-16 rounded-full mr-4" src={props.person.image} alt="Avatar"/>
           <div className="text-sm">
-            <p className="text-gray-600">Current status: {props.person.status}</p>
+            <p className="text-gray-600">Twitter: @{props.person.username}</p>
             <p className="text-gray-600">Gender: {props.person.gender}</p>
           </div>
         </div>

@@ -1,20 +1,13 @@
 import { React, useState, useEffect } from 'react';
 import Tarjeta from './Card2.jsx';
 
-// fetch("https://rickandmortyapi.com/api/character")
-//   .then((response) => response.json())  
-// 	.then((response) => {
-//         console.log(response.results[1]);
-//     });
-
-
 
 export default function Customers() {
     const [isLoading, setIsLoading] = useState(true);
     const [customers, setCustomers] = useState(null);
 
     useEffect(() => {
-        fetch("https://rickandmortyapi.com/api/character")
+        fetch("https://randomuser.me/api/?results=16&nat=es")
         .then((response) => response.json())
         .then((rj) => {
           setCustomers(rj.results); // ⬅️ Guardar datos
@@ -51,8 +44,11 @@ export default function Customers() {
 
         {customers.map((customer, index) => {
           console.log(customer)
-          customer.place = customer.location.name
-          customer.originplace = customer.origin.name
+          customer.name = customer.name.first + " " + customer.name.last
+          customer.place = customer.location.city
+          customer.originplace = customer.location.city
+          customer.image = customer.picture.medium
+          customer.username = customer.login.username
           return (
             <div key={index}>
               <Tarjeta person={customer} />
