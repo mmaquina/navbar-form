@@ -5,6 +5,8 @@ import Tarjeta from './Card2.jsx';
 export default function Customers() {
     const [isLoading, setIsLoading] = useState(true);
     const [customers, setCustomers] = useState(null);
+    const [quotesAreLoading, setQuotesAreLoading] = useState(true);
+    const [quotes, setQuotes] = useState(null);
 
     useEffect(() => {
         fetch("https://randomuser.me/api/?results=16&nat=es")
@@ -15,7 +17,17 @@ export default function Customers() {
         });
     }, []);
 
-    if (isLoading) { // ⬅️ si está cargando, mostramos un texto que lo indique
+    useEffect(() => {
+      fetch("https://api.quotable.io/quotes/random/?limit=20")
+      .then((response) => response.json())
+      .then((rj) => {
+        setQuotes(rj); // ⬅️ Guardar datos
+        setQuotesAreLoading(false); // ⬅️ Desactivar modo "cargando"
+      });
+    }, []);
+
+
+    if (isLoading || quotesAreLoading) { // ⬅️ si está cargando, mostramos un texto que lo indique
       return (
         <div className="App">
           <h1>Cargando...</h1>
@@ -40,7 +52,7 @@ export default function Customers() {
         </div>
 
       <h2>Nuestros Clientes</h2>
-      <div className="container  flex  flex-wrap">
+      <div className="container  flex  flex-wrap text-center">
 
         {customers.map((customer, index) => {
           console.log(customer)
@@ -49,6 +61,7 @@ export default function Customers() {
           customer.originplace = customer.location.city
           customer.image = customer.picture.medium
           customer.username = customer.login.username
+          customer.quote = quotes[index].content
           return (
             <div key={index}>
               <Tarjeta person={customer} />
